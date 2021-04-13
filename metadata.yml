@@ -1,0 +1,13 @@
+#cloud-config
+users:
+  - default
+  - name: yc-user
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDNV1v5jtzIa39vO315cPymByh/3rX3cMKJ502pu1kR7WAPMWLPBhDt1Sr+rGOeHqLirHURT5gM/BhFer8F/H+1k7j295QklXSX3LHosna+gzLr1TFs4zoJTBX66ZIdi67Sy/yJ1l3Wf7XQ5i188EY8vCb4kdfetRPw74xttRQObVNRGr+pj4cISjQLDDk8qgDTcUXsyhqO23owgOd06pzNFokjE8Oynb55zUjntDaCwNACmASg++a0TVpRanf42prs1pJLml3ZNextXU5pzYT7Cfcs0e1rz/qv5X/b5czlf3xdqn3wXVMIYWhRoDHZ8nVndHZM/irwm4Wqaxbg68Uoyt7G4uhzeQOPSPicjBe82gdzv67bZdVZAPVR4ZOGnbdYJT52gU1WMgq5dt/1XTUGGae2O7mLPN68hYmk5Yi3xNBWoJI9ZRhykrEhdQmg1K8E/lXXL/VxchAeaESW+A9WdpPr4/Nk5cbuzcHyOQTbjscW1Ucg/kqgowiCUXaQR5k= appuser"
+
+runcmd:
+  - [ wget, "https://gist.githubusercontent.com/MaggieBol/e42f1646b9c445676da6fb2cff83b473/raw/91f71256a7af667ff154e0d5e753e06f5c79b4f3/startup.sh", -O, "/home/yc-user/startup.sh" ]
+  - [ sudo, chmod, +x, "/home/yc-user/startup.sh"]
+  - [ bash, "/home/yc-user/startup.sh"]
