@@ -4,7 +4,7 @@ MaggieBol Infra repository
 bastion_IP = 130.193.36.41
 someinternalhost_IP = 10.130.0.23
 
-testapp_IP = 130.193.49.226
+testapp_IP = 130.193.39.175
 testapp_port = 9292
 
 
